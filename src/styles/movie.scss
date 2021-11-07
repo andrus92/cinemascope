@@ -1,0 +1,63 @@
+.movie {
+
+    &__wrap {
+        display: flex;
+        margin: 0 -15px;
+        flex-wrap: wrap;
+    }
+
+    &__box {
+        width: 25%;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__card {
+        border: 1px solid grey;
+    }
+
+    &__img {
+        max-width: 300px;
+        max-height: 450px;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__tittle,
+    &__rating,
+    &__genres,
+    &__countries,
+    &__release {
+        display: block;
+        text-align: center;
+    }
+
+    &__tittle {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.22;
+        margin-bottom: 17px;
+    }
+
+    &__rating {
+        background-color:cornflowerblue;
+        color: white;
+        font-size: 25px;
+    }
+
+    &__genres,
+    &__countries {
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    &__release {
+        color: blueviolet;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 1.22;
+        margin-bottom: 10px;
+    }
+}
