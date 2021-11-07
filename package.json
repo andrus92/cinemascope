@@ -1,0 +1,17 @@
+{
+  "name": "cinemascope",
+  "version": "1.0.0",
+  "description": "This service will show a big range of movies groped by different parameters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html --open"
+  },
+  "author": "Andrei Yahorau",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "parcel-bundler": "^1.12.5"
+  }
+}
