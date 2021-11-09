@@ -1,4 +1,5 @@
-import "./styles.css";
+import "./styles/normalize.css";
+import "./styles/styles.css";
 import { sortArrayByName } from './utils';
 
 document.getElementById("app").innerHTML = `<h1>Hello Cinemascope!</h1>`;
