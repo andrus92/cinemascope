@@ -8,15 +8,26 @@
     "build": "parcel build index.html"
   },
   "author": "Andrei Yahorau",
-  "dependencies": { "parcel-bundler": "^1.6.1" },
+  "dependencies": {
+    "parcel-bundler": "^1.6.1"
+  },
   "devDependencies": {
-    "@babel/core": "7.2.0"
+    "@babel/core": "7.2.0",
+    "parcel-plugin-static-files-copy": "^2.6.0"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"
   },
-  "keywords": ["javascript", "starter"]
+  "keywords": [
+    "javascript",
+    "starter"
+  ],
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "img",
+        "staticOutDir": "img/"
+      }
+    ]
+  }
 }
-
-
-
