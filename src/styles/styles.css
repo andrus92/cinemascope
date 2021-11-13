@@ -40,7 +40,7 @@
   margin-bottom: 17px;
 }
 .movie__rating {
-  background-color: cornflowerblue;
+  background-color: #17A2B8;
   color: white;
   font-size: 25px;
 }
@@ -49,26 +49,21 @@
   font-size: 20px;
 }
 .movie__release {
-  color: blueviolet;
+  color: #17A2B8;
   font-weight: 400;
   font-size: 22px;
   line-height: 1.22;
   margin-bottom: 10px;
 }
 
-.movie-details {
-  border: 2px solid yellow;
-}
 .movie-details__wrap {
   display: flex;
   flex-wrap: nowrap;
 }
 .movie-details__poster {
   width: 30%;
-  border: 1px solid green;
 }
 .movie-details__info {
-  border: 1px solid red;
   width: 70%;
 }
 .movie-details__img {
@@ -87,39 +82,30 @@
 }
 .movie-details__rating {
   font-size: 20px;
-  background: #343A40;
-  color: white;
+  background: #D1D2D4;
 }
 .movie-details__genres {
   font-size: 20px;
-  background: #DC3545;
-  color: white;
 }
 .movie-details__countries {
   font-size: 20px;
-  background: blueviolet;
-  color: white;
+  background: #D1D2D4;
 }
 .movie-details__release {
   font-size: 20px;
-  background: #28A745;
-  color: white;
 }
 .movie-details__director {
   font-size: 20px;
-  background: #17A2B8;
-  color: white;
+  background: #D1D2D4;
 }
 .movie-details__cast {
   font-size: 20px;
-  background: blueviolet;
-  color: white;
 }
 .movie-details__description-title {
   display: block;
-  background: #28A745;
   font-size: 25px;
-  color: white;
+  font-weight: 600;
+  color: #17A2B8;
 }
 .movie-details__description {
   font-size: 20px;

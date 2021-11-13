@@ -1,14 +1,6 @@
-$blue-color: #17A2B8;
-$red-color: #DC3545;
-$black-color: #343A40;
-$green-color: #28A745;
-$violet-color: blueviolet;
-$gray-color: gray;
-$white-color: white;
 
 
 .movie-details {
-    border: 2px solid yellow;
 
     &__wrap {
         display: flex;
@@ -17,10 +9,8 @@ $white-color: white;
     
     &__poster {
         width: 30%;
-        border: 1px solid green;
     }
     &__info {
-        border: 1px solid red;
         width: 70%;
     }
 
@@ -49,45 +39,37 @@ $white-color: white;
 
     &__rating {
         font-size: 20px;
-        background: $black-color;
-        color: $white-color;
+        background: $bg-color;
     }
 
     &__genres {
         font-size: 20px;
-        background: $red-color;
-        color: $white-color;
     }
 
     &__countries {
         font-size: 20px;
-        background: $violet-color;
-        color: $white-color;
+        background: $bg-color;
     }
 
     &__release {
         font-size: 20px;
-        background: $green-color;
-        color: $white-color;
+        
     }
 
     &__director {
         font-size: 20px;
-        background: $blue-color;
-        color: $white-color;
+        background: $bg-color;
     }
 
     &__cast {
         font-size: 20px;
-        background: $violet-color;
-        color: $white-color;
     }
 
     &__description-title {
         display: block;
-        background: $green-color;
         font-size: 25px;
-        color: $white-color;
+        font-weight: 600;
+        color: $blue-color;
     }
 
     &__description {
