@@ -21,8 +21,9 @@ function init() {
             const movieDetailsContainer = getMovieDetailsContainerDiv();
             const renderedDetails = renderMovieDetails(moviesData[movie_id]);
             movieDetailsContainer.append(renderedDetails);
+            clearMovies(movieWrap);
         }
-        clearMovies(movieWrap);
+        
     }, false);
 }
 
