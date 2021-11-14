@@ -2,30 +2,52 @@
 <html>
 
 <head>
-	<title>Cinemascope</title>
-	<meta charset="UTF-8" />
+    <title>Cinemascope</title>
+    <meta charset="UTF-8" />
 </head>
 
 
 <body>
-	<div id="root"></div>
-
-	
-
+    <div id="root"></div>
 
 
     <div class="wrapper">
         <div class="movie">
             <div class="container">
                 <div class="movie__wrap" id="movie__wrap">
-                 <!-- Movies will be rendered here  -->
+                    <!-- Movies will be rendered here  -->
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-details">
+            <div class="container">
+                <div class="movie-details__wrap">
+                    <div class="movie-details__poster">
+                        <img class="movie-details__img" src="./img/Godfather.jpg" alt="">
+                    </div>
+                    <div class="movie-details__info">
+                        <span class="movie-details__title">The Godfather</span>
+                        <span class="movie-details__rating">Rating: 9.2</span>
+                        <span class="movie-details__genres">Genres: Drama,Crime</span>
+                        <span class="movie-details__countries">Countries: USA</span>
+                        <span class="movie-details__release">Release date: 1972-03-17</span>
+                        <span class="movie-details__director">Director: Francis Ford Coppola</span>
+                        <span class="movie-details__cast">Cast: Marlon Brando, Al Pacino</span>
+                        <span class="movie-details__description-title">Description:</span>
+                        <span class="movie-details__description">
+                            The aging patriarch of an organized crime dynasty in postwar New York City transfers control
+                            of his
+                            clandestine empire to his reluctant youngest son.
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="src/index.js">
     </script>
-    
+
 </body>
 
 </html>

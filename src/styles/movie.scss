@@ -42,7 +42,7 @@
     }
 
     &__rating {
-        background-color:cornflowerblue;
+        background-color: $blue-color;
         color: white;
         font-size: 25px;
     }
@@ -54,7 +54,7 @@
     }
 
     &__release {
-        color: blueviolet;
+        color: $blue-color;
         font-weight: 400;
         font-size: 22px;
         line-height: 1.22;
