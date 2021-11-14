@@ -23,6 +23,7 @@
         width: 100%;
         height: 100%;
         height: 400px;
+        pointer-events: none;
     }
 
     &__tittle,
@@ -32,6 +33,7 @@
     &__release {
         display: block;
         text-align: center;
+        pointer-events: none;
     }
 
     &__tittle {
