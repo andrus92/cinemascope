@@ -47,7 +47,7 @@ function init() {
 
                 setTimeout(function () {
                     modal.style.display = "none";
-                }, 1000);
+                }, 1500);
 
                 latest_mouseover_obj.id = movie_id;
             } else {

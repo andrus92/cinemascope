@@ -2,3 +2,4 @@
 .DS_Store
 /dist
 /.cache
+/src/styles/styles.css.map
