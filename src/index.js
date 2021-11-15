@@ -5,7 +5,6 @@ import { moviesData } from './movies';
 import { getMovieWrap, getMovieContainerDiv, getMovieDetailsContainerDiv } from './accessors';
 import { renderMovies, renderMovieDetails, clearMovies } from './render';
 
-
 function init() {
 
     const renderedMovies = renderMovies(moviesData);
@@ -23,7 +22,40 @@ function init() {
             movieDetailsContainer.append(renderedDetails);
             clearMovies(movieWrap);
         }
-        
+
+    }, false);
+
+    const latest_mouseover_obj = {
+        class: '',
+        id: ''
+    };
+
+    movieContainerDiv.addEventListener('mouseover', (evt) => {
+        let className = evt.target.getAttribute('class');
+
+        if (className === 'movie__card') {
+            const modal = document.getElementById("myModal");
+            const movie_id = evt.target.getAttribute('id');
+
+            if (   latest_mouseover_obj.class !== "movie__card"
+                || (latest_mouseover_obj.class === "movie__card" && latest_mouseover_obj.id !== movie_id)) {
+
+                var p = document.getElementById("modal__text");
+                p.innerHTML = `${moviesData[movie_id].description}`;
+
+                modal.style.display = "block";
+
+                setTimeout(function () {
+                    modal.style.display = "none";
+                }, 1000);
+
+                latest_mouseover_obj.id = movie_id;
+            } else {
+                latest_mouseover_obj.id = '';
+            }
+        }
+        latest_mouseover_obj.class = className;
+
     }, false);
 }
 
