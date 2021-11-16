@@ -49,6 +49,8 @@ $TITLE_SIZE: 6*$DS;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
+        border: 1px solid grey;
+        position: relative;
     }
 
     &__img {
@@ -120,5 +122,15 @@ $TITLE_SIZE: 6*$DS;
         line-height: 1.22;
         margin-bottom: 2*$DS;
         text-align: right;
+    }
+
+    &__popup {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: $gray-color;
+        display: none;
     }
 }

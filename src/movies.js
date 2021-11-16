@@ -33,7 +33,7 @@ const moviesData = [
         picture: '../img/vita.jfif',
         rating: 8.6,
         genres: ['Comedy', 'War', 'Drama'],
-        countries: ['USA'],
+        countries: ['Italy'],
         relDate: '1997-12-20',
         description: 'When an open-minded Jewish waiter and his son become victims of the Holocaust, he uses a perfect mixture of will, humor, and imagination to protect his son from the dangers around their camp.',
         director: 'Roberto Benigni',
