@@ -4,14 +4,15 @@ import { sortArrayByName } from './utils';
 import { moviesData } from './movies';
 import { getMovieWrap, getMovieContainerDiv, getMovieDetailsContainerDiv } from './accessors';
 import { renderMovies, renderMovieDetails, clearMovies } from './render';
+import { requestData, IMG_URL } from './tmdbApi';
+import EventObserver from './EventObserver';
 
 // click
-
 function handleClickOnMovie(evt) {
     let className = evt.target.getAttribute('class');
     if (className === 'movie__card') {
         const movie_id = evt.target.getAttribute('id');
-        const renderedDetails = renderMovieDetails(moviesData[movie_id]);
+        const renderedDetails = renderMovieDetails(moviesArr[movie_id]);
         const movieDetailsContainer = getMovieDetailsContainerDiv();
         const movieWrap = getMovieWrap();
 
@@ -22,6 +23,9 @@ function handleClickOnMovie(evt) {
         unregisterFromMouseOver();
     }
 }
+
+const networkObserver = new EventObserver();
+const moviesArr = [];
 
 const latest_mouseover_obj = {
     class: '',
@@ -80,15 +84,48 @@ function unregisterFromMouseOver() {
     movieContainerDiv.removeEventListener('mouseover', handleMouseOver);
 }
 
-function init() {
-
+function handleError() {
+    //getMovieContainerDiv().innerText = '⚠️';
+    // Render the list of movies that we already have
+    moviesArr.length = 0;
+    moviesArr = moviesData;
     const renderedMovies = renderMovies(moviesData);
     const movieContainerDiv = getMovieContainerDiv();
     movieContainerDiv.append(renderedMovies);
+}
+
+function getDataFromServer(data) {
+    moviesArr.length = 0;
+
+    data.results.forEach(serverFilm => {
+        let film = {
+            title: serverFilm.title,
+            picture: IMG_URL + serverFilm.poster_path,
+            rating: serverFilm.vote_average,
+            genres: ['Drama'],
+            countries: ['USA'],
+            relDate: serverFilm.release_date,
+            description: serverFilm.overview,
+            director: 'Franc Darabont',
+            cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler', 'Clancy Brown' ]
+        };
+        moviesArr.push(film);
+    });
+
+    const renderedMovies = renderMovies(moviesArr);
+    const movieContainerDiv = getMovieContainerDiv();
+    movieContainerDiv.append(renderedMovies);
+}
+
+function init() {
+
+    requestData().then(i => {
+        networkObserver.broadcast(i);
+    }).catch(handleError);
 
     registerForClickOn();
     registerForMouseOver();
 
 }
-
+networkObserver.subscribe(getDataFromServer);
 init();
