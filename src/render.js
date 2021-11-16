@@ -21,6 +21,10 @@ export function renderMovies(data) {
                 <span class="movie__genres">${film.genres}</span>
                 <span class="movie__countries">${film.countries}</span>
                 <span class="movie__release">Release date: ${film.relDate}</span>
+                <div class="movie__popup">
+                    <h3>Description</h3>
+                    <p>${film.description}</p>
+                </div>
             </div>`;
         fragment.append(div);
     });

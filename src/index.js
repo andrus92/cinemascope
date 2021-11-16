@@ -40,14 +40,17 @@ function init() {
             if (   latest_mouseover_obj.class !== "movie__card"
                 || (latest_mouseover_obj.class === "movie__card" && latest_mouseover_obj.id !== movie_id)) {
 
-                var p = document.getElementById("modal__text");
-                p.innerHTML = `${moviesData[movie_id].description}`;
+                const movie_card = document.getElementById(movie_id);
+                const movie_card_children = movie_card.childNodes;
 
-                modal.style.display = "block";
+                const movie_popup = [].find.call(movie_card_children, elem => (elem.className === "movie__popup"))
 
-                setTimeout(function () {
-                    modal.style.display = "none";
-                }, 1500);
+                if (movie_popup !== undefined) {
+                    movie_popup.style.display = "block";
+                    setTimeout(function () {
+                        movie_popup.style.display = "none";
+                    }, 3000);
+                } 
 
                 latest_mouseover_obj.id = movie_id;
             } else {
