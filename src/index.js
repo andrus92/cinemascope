@@ -6,6 +6,7 @@ import { getMovieWrap, getMovieContainerDiv, getMovieDetailsContainerDiv } from 
 import { renderMovies, renderMovieDetails, clearMovies } from './render';
 
 // click
+
 function handleClickOnMovie(evt) {
     let className = evt.target.getAttribute('class');
     if (className === 'movie__card') {
@@ -16,6 +17,9 @@ function handleClickOnMovie(evt) {
 
         movieDetailsContainer.append(renderedDetails);
         clearMovies(movieWrap);
+
+        unregisterFromClickOn();
+        unregisterFromMouseOver();
     }
 }
 
@@ -56,14 +60,34 @@ function handleMouseOver(evt) {
 }
 
 
+function registerForClickOn() {
+    const movieContainerDiv = getMovieContainerDiv();
+    movieContainerDiv.addEventListener('click', handleClickOnMovie);
+}
+
+function unregisterFromClickOn() {
+    const movieContainerDiv = getMovieContainerDiv();
+    movieContainerDiv.removeEventListener('click', handleClickOnMovie);
+}
+
+function registerForMouseOver() {
+    const movieContainerDiv = getMovieContainerDiv();
+    movieContainerDiv.addEventListener('mouseover', handleMouseOver);
+}
+
+function unregisterFromMouseOver() {
+    const movieContainerDiv = getMovieContainerDiv();
+    movieContainerDiv.removeEventListener('mouseover', handleMouseOver);
+}
+
 function init() {
 
     const renderedMovies = renderMovies(moviesData);
     const movieContainerDiv = getMovieContainerDiv();
     movieContainerDiv.append(renderedMovies);
 
-    movieContainerDiv.addEventListener('click', handleClickOnMovie);
-    movieContainerDiv.addEventListener('mouseover', handleMouseOver);
+    registerForClickOn();
+    registerForMouseOver();
 
 }
 
