@@ -54,6 +54,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: -38px;
+  pointer-events: none;
 }
 .movie .movie__rating {
   text-align: center;

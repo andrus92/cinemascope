@@ -6,40 +6,35 @@ import { moviesData } from './movies';
 import { getMovieWrap, getMovieContainerDiv, getMovieDetailsContainerDiv } from './accessors';
 import { renderMovies, renderMovieDetails, clearMovies } from './render';
 
-function init() {
+// click
+function handleClickOnMovie(evt) {
+    
+    let className = evt.target.getAttribute('class');
+    console.log(className);
+    if (className === 'movie__card') {
+        const movie_id = evt.target.getAttribute('id');
+        const renderedDetails = renderMovieDetails(moviesData[movie_id]);
+        const movieDetailsContainer = getMovieDetailsContainerDiv();
+        const movieWrap = getMovieWrap();
 
-    const renderedMovies = renderMovies(moviesData);
-    const movieContainerDiv = getMovieContainerDiv();
-    movieContainerDiv.append(renderedMovies);
+        movieDetailsContainer.append(renderedDetails);
+        clearMovies(movieWrap);
+    }
+}
 
+const latest_mouseover_obj = {
+    class: '',
+    id: ''
+};
 
-    const movieWrap = getMovieWrap();
-    movieContainerDiv.addEventListener('click', (evt) => {
-        let className = evt.target.getAttribute('class');
+// mouseover
+function handleMouseOver(evt) {
+    const className = evt.target.getAttribute('class');
         
-        if (className === 'movie__image-container') {
-            const movie_id = evt.target.parentElement.getAttribute('id');
-            const movieDetailsContainer = getMovieDetailsContainerDiv();
-            const renderedDetails = renderMovieDetails(moviesData[movie_id]);
-            movieDetailsContainer.append(renderedDetails);
-            clearMovies(movieWrap);
-        }
+        if (className === 'movie__card') {
+            const movie_id = evt.target.getAttribute('id');
 
-    }, false);
-
-    const latest_mouseover_obj = {
-        class: '',
-        id: ''
-    };
-
-    movieContainerDiv.addEventListener('mouseover', (evt) => {
-        let className = evt.target.getAttribute('class');
-
-        if (className === 'movie__image-container') {
-            const modal = document.getElementById("myModal");
-            const movie_id = evt.target.parentElement.getAttribute('id');
-
-            if (   latest_mouseover_obj.class !== "movie__card"
+            if (latest_mouseover_obj.class !== "movie__card"
                 || (latest_mouseover_obj.class === "movie__card" && latest_mouseover_obj.id !== movie_id)) {
 
                 const movie_card = document.getElementById(movie_id);
@@ -52,7 +47,7 @@ function init() {
                     setTimeout(function () {
                         movie_popup.style.display = "none";
                     }, 3000);
-                } 
+                }
 
                 latest_mouseover_obj.id = movie_id;
             } else {
@@ -60,8 +55,18 @@ function init() {
             }
         }
         latest_mouseover_obj.class = className;
+}
 
-    }, false);
+
+function init() {
+
+    const renderedMovies = renderMovies(moviesData);
+    const movieContainerDiv = getMovieContainerDiv();
+    movieContainerDiv.append(renderedMovies);
+
+    movieContainerDiv.addEventListener('click', handleClickOnMovie);
+    movieContainerDiv.addEventListener('mouseover', handleMouseOver);
+
 }
 
 init();

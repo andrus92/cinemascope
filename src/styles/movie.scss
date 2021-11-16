@@ -68,6 +68,7 @@ $TITLE_SIZE: 6*$DS;
         display: flex;
         justify-content: center;
         margin-bottom: -38px;
+        pointer-events: none;
     }
 
     .movie__rating {
