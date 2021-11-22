@@ -2,6 +2,7 @@ import godfatherImg from '../img/Godfather.jpg';
 
 const moviesData = [
     {
+        id:0,
         title: 'The Shawshank Redemption',
         picture: '../img/Shawshank_redemption_movie.jpg',
         rating: 9.3,
@@ -14,6 +15,7 @@ const moviesData = [
     },
 
     {
+        id:1,
         title: 'The Godfather',
         picture: '../img/Godfather.jpg',
         rating: 9.2,
@@ -26,6 +28,7 @@ const moviesData = [
     },
 
     {
+        id:2,
         title: 'La vita è bella',
         picture: '../img/vita.jfif',
         rating: 8.6,
@@ -38,6 +41,7 @@ const moviesData = [
     },
     
     {
+        id:3,
         title: 'Forrest Gump',
         picture: '../img/forest.jfif',
         rating: 8.9,
@@ -50,6 +54,7 @@ const moviesData = [
     },
 
     {
+        id:4,
         title: '1+1',
         picture: '../img/1plus1.jfif',
         rating: 8.8,
@@ -62,6 +67,7 @@ const moviesData = [
     },
 
     {
+        id:5,
         title: 'Pulp Fiction',
         picture: '../img/pulp_fiction.jfif',
         rating: 8.6,
@@ -74,6 +80,7 @@ const moviesData = [
     },
 
     {
+        id:6,
         title: 'A Beautiful Mind',
         picture: '../img/a_beautiful_mind.jfif',
         rating: 8.6,
@@ -86,6 +93,7 @@ const moviesData = [
     },
 
     {
+        id:7,
         title: 'Catch Me If You Can',
         picture: '../img/catch_me.jfif',
         rating: 8.5,
@@ -98,6 +106,7 @@ const moviesData = [
     },
 
     {
+        id:8,
         title: 'Pirates of the Caribbean',
         //TODO: correct the layout with long text 
         //title: 'Pirates of the Caribbean: The Curse of the Black Pearl',
@@ -112,6 +121,7 @@ const moviesData = [
     },
 
     {
+        id:9,
         title: 'Scent of a Woman',
         picture: '../img/scent_of_a_woman.jfif',
         rating: 8.4,
@@ -124,6 +134,7 @@ const moviesData = [
     },
 
     {
+        id:10,
         title: "It's a Wonderful Life",
         picture: '../img/wonderful_life.jfif',
         rating: 9.2,
@@ -136,6 +147,7 @@ const moviesData = [
     },
 
     {
+        id:11,
         title: 'Il bisbetico domato',
         picture: '../img/il_bisbetico_domato.jfif',
         rating: 8.4,
@@ -148,6 +160,7 @@ const moviesData = [
     },
 
     {
+        id:12,
         title: 'Innamorato pazzo',
         picture: '../img/innamorato.jfif',
         rating: 8.4,
@@ -160,6 +173,7 @@ const moviesData = [
     },
 
     {
+        id:13,
         title: 'Roman Holiday',
         picture: '../img/roman_holiday.jfif',
         rating: 8.3,
@@ -172,6 +186,7 @@ const moviesData = [
     },
 
     {
+        id:14,
         title: "Breakfast at Tiffany's",
         picture: '../img/breakfast.jfif',
         rating: 8.1,
@@ -184,6 +199,7 @@ const moviesData = [
     },
 
     {
+        id:15,
         title: 'Dial M for Murder',
         picture: '../img/dial_m.jfif',
         rating: 8.1,
@@ -196,6 +212,7 @@ const moviesData = [
     },
 
     {
+        id:16,
         title: 'Rear Window',
         picture: '../img/rear_window.jfif',
         rating: 8.0,
@@ -208,6 +225,7 @@ const moviesData = [
     },
 
     {
+        id:17,
         title: 'Vertigo',
         picture: '../img/vertigo.jfif',
         rating: 8.0,
