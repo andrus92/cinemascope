@@ -4,8 +4,9 @@
   "description": "This service will show a big range of movies groped by different parameters.",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "start": "parcel src/index.html --open",
+    "build": "parcel build src/index.html",
+    "lint": "eslint --ext .js src -c .eslintrc.js --fix"
   },
   "author": "Andrei Yahorau",
   "dependencies": {
@@ -13,7 +14,10 @@
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
-    "parcel-plugin-static-files-copy": "^2.6.0"
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "eslint": "^8.1.0",
+    "sass": "^1.43.4",
+    "workbox-cli": "^6.4.1"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"
