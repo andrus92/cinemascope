@@ -9,18 +9,27 @@ export function renderMovies(data) {
 
     let fragment = new DocumentFragment();
 
-    data.forEach((film, idx) => {
+    data.forEach((film) => {
         let div = document.createElement("div");
         div.classList.add("movie__box");
 
         div.innerHTML =
-            `<div class="movie__card" id="${idx}">
-                <img src="${film.picture}" alt="" class="movie__img">
-                <span class="movie__tittle">${film.title}</span>
-                <span class="movie__rating">${film.rating}</span>
-                <span class="movie__genres">${film.genres}</span>
-                <span class="movie__countries">${film.countries}</span>
-                <span class="movie__release">Release date: ${film.relDate}</span>
+            `<div class="movie__card" id="${film.id}">
+                <div class="movie__image-container">
+                    <img src="${film.picture}" alt="" class="movie__img">
+                    
+                </div>
+
+                <div class="movie__rating">${film.rating}</div>
+
+                <div class="movie__container-description">
+                    <span class="movie__tittle">${film.title}</span>
+                    
+                    <span class="movie__genres">${humanizeGenres(film.genres)}</span>
+                    <span class="movie__countries">${film.countries}</span>
+                    <span class="movie__release">${film.relDate}</span>
+                </div>
+                
             </div>`;
         fragment.append(div);
     });
@@ -56,4 +65,16 @@ export function renderMovieDetails(film) {
         </div>`;
 
     return div;
+}
+
+const humanizeGenres = (genres) => genres.reduce((str, g, idx, len) => `${g}${idx<len.length-1 ? '' : ', '}${str}`, '')
+
+const renderStar = (id)=>{
+    return ({
+        html() {
+            //renderStart
+            return '<span></'
+
+        }
+    })
 }

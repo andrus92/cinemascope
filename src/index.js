@@ -1,5 +1,6 @@
 import "./styles/normalize.css";
 import "./styles/styles.css";
+import "./styles/styles.scss"
 import { sortArrayByName } from './utils';
 import { moviesData } from './movies';
 import { getMovieWrap, getMovieContainerDiv, getMovieDetailsContainerDiv } from './accessors';
@@ -15,8 +16,9 @@ function init() {
     const movieWrap = getMovieWrap();
     movieContainerDiv.addEventListener('click', (evt) => {
         let className = evt.target.getAttribute('class');
-        if (className === 'movie__card') {
-            const movie_id = evt.target.getAttribute('id');
+        
+        if (className === 'movie__image-container') {
+            const movie_id = evt.target.parentElement.getAttribute('id');
             const movieDetailsContainer = getMovieDetailsContainerDiv();
             const renderedDetails = renderMovieDetails(moviesData[movie_id]);
             movieDetailsContainer.append(renderedDetails);
@@ -33,7 +35,7 @@ function init() {
     movieContainerDiv.addEventListener('mouseover', (evt) => {
         let className = evt.target.getAttribute('class');
 
-        if (className === 'movie__card') {
+        if (className === 'movie__image-container'/* 'movie__card' */) {
             const modal = document.getElementById("myModal");
             const movie_id = evt.target.getAttribute('id');
 

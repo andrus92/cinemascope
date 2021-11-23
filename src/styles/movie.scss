@@ -1,65 +1,123 @@
+$mobile: 1080px;;
+// $desktop: 900px;
+
+$COLOR_BLACK1: #222222;
+$COLOR_BLACK: rgb(95, 95, 95);
+$COLOR_BLUE: $blue-color;
+$CARD_WIDTH: 300px;
+$CARD_WIDTH_MIN: 300px;
+
+$DS:4px;
+
+$TITLE_MARGIN: 2*$DS;
+$TITLE_SIZE: 6*$DS;
+
+
 .movie {
 
     &__wrap {
-        display: flex;
-        margin: 0 -15px;
-        flex-wrap: wrap;
+        justify-content: center;
     }
 
     &__box {
-        width: 33.3%;
-        padding: 5px 10px;
+        padding: 3*$DS 3*$DS;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     &__card {
-        border: 1px solid grey;
+        @media screen and (max-width: $mobile) {
+            max-width: 420px;
+            min-width: 420px;
+        }
+        
+        @media screen and (min-width: $mobile+1px) {
+            max-width: $CARD_WIDTH;
+            min-width: $CARD_WIDTH_MIN;
+        }
+       
+        border-radius: $DS;
+        background-color: #fff;
+        background-color: var(--mdc-theme-surface, #fff);
+        // border: 1px solid rgb(245, 245, 245);
+        box-shadow:
+        0px 3px 1px -2px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%),
+        0px 1px 4px 0px rgb(0 0 0 / 12%);
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
     }
 
     &__img {
-        max-width: 300px;
-        width: 100%;
-        height: 100%;
-        height: 400px;
+        height: 80*$DS;
         pointer-events: none;
+        object-fit: cover;
+    }
+    &__container-description {
+        text-align: left;
+        padding: 2*$DS;
     }
 
+    &__image-container {
+        padding: 2*$DS;
+        display: flex;
+        justify-content: center;
+        margin-bottom: -38px;
+    }
+
+    .movie__rating {
+        text-align: center;
+    }
+    
     &__tittle,
     &__rating,
     &__genres,
-    &__countries,
-    &__release {
+    &__countries {
+        color: $COLOR_BLACK;
         display: block;
-        text-align: center;
+        text-align: inherit;
         pointer-events: none;
     }
 
     &__tittle {
-        font-size: 22px;
-        font-weight: 600;
+        color: $COLOR_BLACK1;
+        font-size: $TITLE_SIZE;
+        font-weight: bold;
         line-height: 1.22;
-        margin-bottom: 17px;
+        margin-top: $TITLE_MARGIN;
+        margin-bottom: $TITLE_MARGIN;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__rating {
         background-color: $blue-color;
         color: white;
-        font-size: 25px;
+        font-size: 6*$DS;
+        border-radius: 2*$DS;
+        position: relative;
+        top: -4*$DS;
+        left: 4*$DS;
+        width: 49px;
     }
 
     &__genres,
     &__countries {
         font-weight: 400;
-        font-size: 20px;
+        font-size: 4*$DS;
     }
-
+    
     &__release {
+        &::before{
+            content: "Release Date: ";
+        }
         color: $blue-color;
-        font-weight: 400;
-        font-size: 22px;
+        font-size: 3*$DS;
         line-height: 1.22;
-        margin-bottom: 10px;
+        margin-bottom: 2*$DS;
+        text-align: right;
     }
 }
