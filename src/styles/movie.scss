@@ -16,7 +16,8 @@ $TITLE_SIZE: 6*$DS;
 .movie {
 
     &__wrap {
-        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     &__box {

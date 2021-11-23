@@ -35,9 +35,9 @@ function init() {
     movieContainerDiv.addEventListener('mouseover', (evt) => {
         let className = evt.target.getAttribute('class');
 
-        if (className === 'movie__image-container'/* 'movie__card' */) {
+        if (className === 'movie__image-container') {
             const modal = document.getElementById("myModal");
-            const movie_id = evt.target.getAttribute('id');
+            const movie_id = evt.target.parentElement.getAttribute('id');
 
             if (   latest_mouseover_obj.class !== "movie__card"
                 || (latest_mouseover_obj.class === "movie__card" && latest_mouseover_obj.id !== movie_id)) {
