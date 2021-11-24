@@ -1,8 +1,7 @@
 import "./styles/normalize.css";
 import "./styles/styles.css";
 import "./styles/styles.scss"
-import { sortArrayByName } from './utils';
-import { moviesData } from './movies';
+import { moviesArr_mock } from './movies_mock';
 import { getMovieWrap, getMovieContainerDiv, getMovieDetailsContainerDiv } from './accessors';
 import { renderMovies, renderMovieDetails, clearMovies } from './render';
 import { requestData, IMG_URL } from './tmdbApi';
@@ -85,11 +84,14 @@ function unregisterFromMouseOver() {
 }
 
 function handleError() {
-    //getMovieContainerDiv().innerText = '⚠️';
     // Render the list of movies that we already have
     moviesArr.length = 0;
-    moviesArr = moviesData;
-    const renderedMovies = renderMovies(moviesData);
+    
+    moviesArr_mock.forEach(mock_movie => {
+        moviesArr.push(mock_movie);
+    });
+
+    const renderedMovies = renderMovies(moviesArr);
     const movieContainerDiv = getMovieContainerDiv();
     movieContainerDiv.append(renderedMovies);
 }
@@ -111,7 +113,6 @@ function getDataFromServer(data) {
         };
         moviesArr.push(film);
     });
-    console.log(moviesArr);
 
     const renderedMovies = renderMovies(moviesArr);
     const movieContainerDiv = getMovieContainerDiv();

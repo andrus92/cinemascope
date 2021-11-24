@@ -1,9 +1,5 @@
 import { IMG_URL } from "./tmdbApi";
 
-export function renderWelcomeLetter(elem) {
-    elem.innerHTML = `<h1>Hello Cinemascope!</h1>`;
-}
-
 export function renderMovies(data) {
     const wrap = document.createElement("div");
     wrap.setAttribute('class', 'movie__wrap');
@@ -49,8 +45,6 @@ export function clearMovies(movies_node) {
 export function renderMovieDetails(film) {
     let div = document.createElement("div");
     div.setAttribute('class', 'movie-details__wrap');
-
-    let pic = IMG_URL + film.picture;
 
     div.innerHTML = 
         `<div class="movie-details__poster">
