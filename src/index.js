@@ -101,16 +101,17 @@ function getDataFromServer(data) {
         let film = {
             title: serverFilm.title,
             picture: IMG_URL + serverFilm.poster_path,
-            rating: serverFilm.vote_average,
-            genres: ['Drama'],
-            countries: ['USA'],
-            relDate: serverFilm.release_date,
-            description: serverFilm.overview,
-            director: 'Franc Darabont',
-            cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler', 'Clancy Brown' ]
+            vote_average: serverFilm.vote_average,
+            original_title: serverFilm.original_title,
+            original_language: serverFilm.original_language,
+            release_date: serverFilm.release_date,
+            overview: serverFilm.overview,
+            popularity: serverFilm.popularity,
+            vote_count: serverFilm.vote_count
         };
         moviesArr.push(film);
     });
+    console.log(moviesArr);
 
     const renderedMovies = renderMovies(moviesArr);
     const movieContainerDiv = getMovieContainerDiv();

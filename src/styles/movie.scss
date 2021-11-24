@@ -75,17 +75,15 @@ $TITLE_SIZE: 6*$DS;
         text-align: center;
     }
     
-    &__tittle,
-    &__rating,
-    &__genres,
-    &__countries {
+    &__title,
+    &__rating {
         color: $COLOR_BLACK;
         display: block;
         text-align: inherit;
         pointer-events: none;
     }
 
-    &__tittle {
+    &__title {
         color: $COLOR_BLACK1;
         font-size: $TITLE_SIZE;
         font-weight: bold;
@@ -106,12 +104,6 @@ $TITLE_SIZE: 6*$DS;
         top: -4*$DS;
         left: 4*$DS;
         width: 49px;
-    }
-
-    &__genres,
-    &__countries {
-        font-weight: 400;
-        font-size: 4*$DS;
     }
     
     &__release {

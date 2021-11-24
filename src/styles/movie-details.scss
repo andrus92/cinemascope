@@ -24,8 +24,8 @@
     &__genres,
     &__countries,
     &__release,
-    &__director,
-    &__cast {
+    &__popularity,
+    &__vote-count {
         display: block;
         margin-bottom: 5px;
     }
@@ -54,12 +54,12 @@
         
     }
 
-    &__director {
+    &__popularity {
         font-size: 20px;
         background: $gray-color;
     }
 
-    &__cast {
+    &__vote-count {
         font-size: 20px;
     }
 
