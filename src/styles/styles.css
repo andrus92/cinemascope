@@ -59,13 +59,13 @@
 .movie .movie__rating {
   text-align: center;
 }
-.movie__tittle, .movie__rating, .movie__genres, .movie__countries {
+.movie__title, .movie__rating {
   color: #5f5f5f;
   display: block;
   text-align: inherit;
   pointer-events: none;
 }
-.movie__tittle {
+.movie__title {
   color: #222222;
   font-size: 24px;
   font-weight: bold;
@@ -85,10 +85,6 @@
   top: -16px;
   left: 16px;
   width: 49px;
-}
-.movie__genres, .movie__countries {
-  font-weight: 400;
-  font-size: 16px;
 }
 .movie__release {
   color: #17A2B8;
@@ -126,7 +122,7 @@
   height: 100%;
   max-height: 400px;
 }
-.movie-details__title, .movie-details__rating, .movie-details__genres, .movie-details__countries, .movie-details__release, .movie-details__director, .movie-details__cast {
+.movie-details__title, .movie-details__rating, .movie-details__genres, .movie-details__countries, .movie-details__release, .movie-details__popularity, .movie-details__vote-count {
   display: block;
   margin-bottom: 5px;
 }
@@ -148,11 +144,11 @@
 .movie-details__release {
   font-size: 20px;
 }
-.movie-details__director {
+.movie-details__popularity {
   font-size: 20px;
   background: #D1D2D4;
 }
-.movie-details__cast {
+.movie-details__vote-count {
   font-size: 20px;
 }
 .movie-details__description-title {

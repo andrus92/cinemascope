@@ -1,8 +1,7 @@
 import "./styles/normalize.css";
 import "./styles/styles.css";
 import "./styles/styles.scss"
-import { sortArrayByName } from './utils';
-import { moviesData } from './movies';
+import { moviesArr_mock } from './movies_mock';
 import { getMovieWrap, getMovieContainerDiv, getMovieDetailsContainerDiv } from './accessors';
 import { renderMovies, renderMovieDetails, clearMovies } from './render';
 import { requestData, IMG_URL } from './tmdbApi';
@@ -85,11 +84,14 @@ function unregisterFromMouseOver() {
 }
 
 function handleError() {
-    //getMovieContainerDiv().innerText = '⚠️';
     // Render the list of movies that we already have
     moviesArr.length = 0;
-    moviesArr = moviesData;
-    const renderedMovies = renderMovies(moviesData);
+    
+    moviesArr_mock.forEach(mock_movie => {
+        moviesArr.push(mock_movie);
+    });
+
+    const renderedMovies = renderMovies(moviesArr);
     const movieContainerDiv = getMovieContainerDiv();
     movieContainerDiv.append(renderedMovies);
 }
@@ -101,13 +103,13 @@ function getDataFromServer(data) {
         let film = {
             title: serverFilm.title,
             picture: IMG_URL + serverFilm.poster_path,
-            rating: serverFilm.vote_average,
-            genres: ['Drama'],
-            countries: ['USA'],
-            relDate: serverFilm.release_date,
-            description: serverFilm.overview,
-            director: 'Franc Darabont',
-            cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler', 'Clancy Brown' ]
+            vote_average: serverFilm.vote_average,
+            original_title: serverFilm.original_title,
+            original_language: serverFilm.original_language,
+            release_date: serverFilm.release_date,
+            overview: serverFilm.overview,
+            popularity: serverFilm.popularity,
+            vote_count: serverFilm.vote_count
         };
         moviesArr.push(film);
     });

@@ -1,6 +1,4 @@
-export function renderWelcomeLetter(elem) {
-    elem.innerHTML = `<h1>Hello Cinemascope!</h1>`;
-}
+import { IMG_URL } from "./tmdbApi";
 
 export function renderMovies(data) {
     const wrap = document.createElement("div");
@@ -20,19 +18,16 @@ export function renderMovies(data) {
                     
                 </div>
 
-                <div class="movie__rating">${film.rating}</div>
+                <div class="movie__rating">${film.vote_average}</div>
 
                 <div class="movie__container-description">
-                    <span class="movie__tittle">${film.title}</span>
-                    
-                    <span class="movie__genres">${humanizeGenres(film.genres)}</span>
-                    <span class="movie__countries">${film.countries}</span>
-                    <span class="movie__release">${film.relDate}</span>
+                    <span class="movie__title">${film.title}</span>
+                    <span class="movie__release">${film.release_date}</span>
                 </div>
 
 		<div class="movie__popup">
                     <h3>Description</h3>
-                    <p>${film.description}</p>
+                    <p>${film.overview}</p>
                 </div>
             </div>`;
         fragment.append(div);
@@ -57,14 +52,14 @@ export function renderMovieDetails(film) {
         </div>
         <div class="movie-details__info">
             <span class="movie-details__title">${film.title}</span>
-            <span class="movie-details__rating">Rating: ${film.rating}</span>
-            <span class="movie-details__genres">Genres: ${film.genres}</span>
-            <span class="movie-details__countries">Countries: ${film.countries}</span>
-            <span class="movie-details__release">Release date: ${film.relDate}</span>
-            <span class="movie-details__director">Director: ${film.director}</span>
-            <span class="movie-details__cast">Cast: ${film.cast}</span>
+            <span class="movie-details__rating">Rating: ${film.vote_average}</span>
+            <span class="movie-details__genres">Original title: ${film.original_title}</span>
+            <span class="movie-details__countries">Original language: ${film.original_language}</span>
+            <span class="movie-details__release">Release date: ${film.release_date}</span>
+            <span class="movie-details__popularity">Popularity: ${film.popularity}</span>
+            <span class="movie-details__vote-count">Vote count: ${film.vote_count}</span>
             <span class="movie-details__description-title">Description:</span>
-            <span class="movie-details__description">${film.description}</span>
+            <span class="movie-details__description">${film.overview}</span>
         </div>`;
 
     return div;
