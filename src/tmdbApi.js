@@ -1,6 +1,7 @@
 export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 export const requestData = () => new Promise((resolve, reject) => {
+  // eslint-disable-next-line no-undef
   const api_key = process.env.API_KEY;
   if (api_key) {
     const base_url = 'https://api.themoviedb.org/3';
@@ -14,7 +15,6 @@ export const requestData = () => new Promise((resolve, reject) => {
       });
   } else {
     console.warn('API_KEY is not defined in .env file');
-    return reject(`Cannot receive data, ${error.message}`);
+    return reject('Cannot receive data');
   }
-
 });

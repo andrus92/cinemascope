@@ -4,3 +4,4 @@
 /.cache
 /src/styles/styles.css.map
 /src/.env
+.env
