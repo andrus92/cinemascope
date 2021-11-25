@@ -51,15 +51,22 @@ export function renderMovieDetails(film) {
         </div>
         <div class="movie-details__info">
             <span class="movie-details__title">${film.title}</span>
-            <span class="movie-details__rating">Rating: ${film.vote_average}</span>
-            <span class="movie-details__genres">Original title: ${film.original_title}</span>
-            <span class="movie-details__countries">Original language: ${film.original_language}</span>
+            <span class="movie-details__genres">${film.original_title} [${film.original_language.toUpperCase()}]</span>
+            
+            <div class="flex-row">
+              <span class="movie-details__rating">${film.vote_average}</span>
+              <span class="movie-details__popularity">${film.popularity}</span>
+              <span class="movie-details__vote-count">${film.vote_count}</span>
+            </div>
+
             <span class="movie-details__release">Release date: ${film.release_date}</span>
-            <span class="movie-details__popularity">Popularity: ${film.popularity}</span>
-            <span class="movie-details__vote-count">Vote count: ${film.vote_count}</span>
             <span class="movie-details__description-title">Description:</span>
             <span class="movie-details__description">${film.overview}</span>
-        </div>`;
+        </div>
+        <div class="supers" style="
+          background-image: url(${film.picture});
+        "></div>
+       `;
 
   return div;
 }
