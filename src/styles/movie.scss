@@ -1,23 +1,14 @@
-$mobile: 1080px;;
-// $desktop: 900px;
+@import './sizes.scss';
+@import './colors.scss';
 
-$COLOR_BLACK1: #222222;
-$COLOR_BLACK: rgb(95, 95, 95);
-$COLOR_BLUE: $blue-color;
-$CARD_WIDTH: 300px;
-$CARD_WIDTH_MIN: 300px;
-
-$DS:4px;
-
-$TITLE_MARGIN: 2*$DS;
-$TITLE_SIZE: 6*$DS;
-
+$TIME:.3s;
 
 .movie {
 
     &__wrap {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     &__box {
@@ -28,9 +19,11 @@ $TITLE_SIZE: 6*$DS;
     }
 
     &__card {
+    overflow: hidden;
+
         @media screen and (max-width: $mobile) {
-            max-width: 420px;
-            min-width: 420px;
+            max-width: 105*$DS;
+            min-width: 105*$DS;
         }
         
         @media screen and (min-width: $mobile+1px) {
@@ -38,10 +31,9 @@ $TITLE_SIZE: 6*$DS;
             min-width: $CARD_WIDTH_MIN;
         }
        
-        border-radius: $DS;
+        border-radius: $BORDER_RADIUS;
         background-color: #fff;
         background-color: var(--mdc-theme-surface, #fff);
-        // border: 1px solid rgb(245, 245, 245);
         box-shadow:
         0px 3px 1px -2px rgb(0 0 0 / 20%),
         0px 1px 1px 0px rgb(0 0 0 / 14%),
@@ -99,7 +91,7 @@ $TITLE_SIZE: 6*$DS;
         background-color: $blue-color;
         color: white;
         font-size: 6*$DS;
-        border-radius: 2*$DS;
+        border-radius: $BORDER_RADIUS;
         position: relative;
         top: -4*$DS;
         left: 4*$DS;
@@ -118,12 +110,30 @@ $TITLE_SIZE: 6*$DS;
     }
 
     &__popup {
+        color: $COLOR_BLACK;
+        
+        h3 { 
+            color: $COLOR_BLACK1;
+            margin-bottom: $DS;
+        }
+        p {
+            font-size: 14px;
+        }
+
+        border-radius: $BORDER_RADIUS $BORDER_RADIUS 0 0;
+        filter: drop-shadow(0px 0 18px $COLOR_BLACK1);
+        padding: 4*$DS;
+        background: white;
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 0;
+        bottom: -67*$DS;
         width: 100%;
-        background-color: $gray-color;
-        display: none;
+        transition: all $TIME cubic-bezier(0, 0, 0, 1);
+    }
+
+    &__moved {
+        transition: bottom $TIME cubic-bezier(0, 0, 0, 1);
+        bottom: 0;
     }
 }

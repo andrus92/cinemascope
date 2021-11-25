@@ -1,3 +1,5 @@
+import { clampText } from './utils';
+
 export function renderMovies(data) {
   const wrap = document.createElement('div');
   wrap.setAttribute('class', 'movie__wrap');
@@ -24,7 +26,7 @@ export function renderMovies(data) {
 
 		            <div class="movie__popup">
                   <h3>Description</h3>
-                  <p>${film.overview}</p>
+                  <p>${clampText(film.overview, 120)}</p>
                 </div>
             </div>`;
     fragment.append(div);
