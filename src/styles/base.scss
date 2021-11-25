@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 .wrapper {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -9,4 +11,12 @@
     // max-width: 1260px;
     padding: 0 20px;
     margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Source Sans Pro';
+    color: $COLOR_BLACK;
+    width: 100%;
 }
