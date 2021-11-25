@@ -1,3 +1,8 @@
+@import "./colors.scss";
+
+.wrapper {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 .wrapper {
     overflow: hidden;
 }
@@ -8,5 +13,11 @@
     margin: 0 auto;
 }
 
-$blue-color: #17A2B8;
-$gray-color: #D1D2D4;
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Source Sans Pro';
+    background-color: $COLOR_BLACK1;
+    width: 100%;
+    color: white
+}
