@@ -1,4 +1,7 @@
 import { clampText } from './utils';
+import prev_img from './prev.png';
+import { getMovieWrap, getMovieDetailsWrap } from './accessors';
+
 
 export function renderMovies(data) {
   const wrap = document.createElement('div');
@@ -37,20 +40,34 @@ export function renderMovies(data) {
   return wrap;
 }
 
-export function clearMovies(movies_node) {
-  movies_node.remove();
+export function clearMoviesNode() {
+  const movieWrap = getMovieWrap();
+  movieWrap.remove();
+}
+
+export function clearMovieDetailsNode() {
+  const movieDetailsWrap = getMovieDetailsWrap();
+  movieDetailsWrap.remove();
 }
 
 export function renderMovieDetails(film) {
   let div = document.createElement('div');
   div.setAttribute('class', 'movie-details__wrap');
+  div.setAttribute('id', 'movie-details__wrap');
 
   div.innerHTML = 
         `<div class="movie-details__poster">
             <img class="movie-details__img" src="${film.picture}" alt="">
         </div>
         <div class="movie-details__info">
-            <span class="movie-details__title">${film.title}</span>
+            <div class="movie-details__title-block">
+              <div>
+                <button class="movie-details__btn" id="movie-details__btn"><img src="${prev_img}"></button>
+              </div>
+              <div>
+              <span class="movie-details__title">${film.title}</span>
+              </div>
+            </div>
             <span class="movie-details__genres">${film.original_title} [${film.original_language.toUpperCase()}]</span>
             
             <div class="flex-row">

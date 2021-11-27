@@ -37,7 +37,27 @@
         max-height: 400px;
     }
 
-    &__title,
+    &__btn {
+        img {
+            max-width: 10*$DS;
+            max-height: 10*$DS;
+            width: auto;
+            height: auto;
+        }
+        &:hover {
+            background-color: $blue-color;
+        }
+        margin-right: 4*$DS;
+    }
+
+
+
+    &__title-block {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4*$DS;
+    } 
+
     &__rating,
     &__genres,
     &__countries,
