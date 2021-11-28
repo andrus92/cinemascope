@@ -2,12 +2,16 @@ import './styles/normalize.css';
 import './styles/styles.scss';
 import { 
   getMovieContainerDiv,
-  getMovieDetailsContainerDiv,
   getBackButton,
   getPopup,
   handlePopupOver
 } from './accessors';
-import { renderMovies, renderMovieDetails, clearMoviesNode, clearMovieDetailsNode } from './render';
+import { 
+  clearMoviesNode,
+  clearMovieDetailsNode,
+  addMoviesToNode,
+  addMovieDetailsToNode 
+} from './render';
 import { requestData } from './api';
 import EventObserver from './EventObserver';
 import mock from './mock';
@@ -18,12 +22,8 @@ function handleClickOnMovie(evt) {
   let className = evt.target.getAttribute('class');
   if (className === 'movie__card') {
     const movie_id = evt.target.getAttribute('id');
-    const renderedDetails = renderMovieDetails(moviesArr[movie_id]);
-    const movieDetailsContainer = getMovieDetailsContainerDiv();
-
-    movieDetailsContainer.append(renderedDetails);
+    addMovieDetailsToNode(moviesArr[movie_id]);
     clearMoviesNode();
-
     unregisterFromClickOn();
     unregisterFromMouseOver();
     registerForBackButtonClickOn();
@@ -51,14 +51,9 @@ function handleMouseOut(evt) {
 }
 
 function handleBackButtonClick() {
+  addMoviesToNode(moviesArr);
   unregisterFromBackButtonClickOn();
-
-  const renderedMovies = renderMovies(moviesArr);
-  const movieContainerDiv = getMovieContainerDiv();
-  movieContainerDiv.append(renderedMovies);
-
   clearMovieDetailsNode();
-  
   registerForClickOn();
   registerForMouseOver();
 }
@@ -110,9 +105,7 @@ function handleData(data) {
     });
   });
 
-  const renderedMovies = renderMovies(moviesArr);
-  const movieContainerDiv = getMovieContainerDiv();
-  movieContainerDiv.append(renderedMovies);
+  addMoviesToNode(moviesArr);
 }
 
 function init() {

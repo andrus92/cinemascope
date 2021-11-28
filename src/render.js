@@ -1,9 +1,14 @@
 import { clampText } from './utils';
 import prev_img from './prev.png';
-import { getMovieWrap, getMovieDetailsWrap } from './accessors';
+import {
+  getMovieWrap,
+  getMovieDetailsWrap,
+  getMovieContainerDiv,
+  getMovieDetailsContainerDiv
+} from './accessors';
 
 
-export function renderMovies(data) {
+function renderMovies(data) {
   const wrap = document.createElement('div');
   wrap.setAttribute('class', 'movie__wrap');
   wrap.setAttribute('id', 'movie__wrap');
@@ -15,7 +20,7 @@ export function renderMovies(data) {
     div.classList.add('movie__box');
 
     div.innerHTML =
-            `<div class="movie__card" id="${idx}">
+      `<div class="movie__card" id="${idx}">
                 <div class="movie__image-container">
                   <img src="${film.picture}" alt="" class="movie__img">
                 </div>
@@ -40,23 +45,24 @@ export function renderMovies(data) {
   return wrap;
 }
 
+export function addMoviesToNode(dataArr) {
+  const renderedMovies = renderMovies(dataArr);
+  const movieContainerDiv = getMovieContainerDiv();
+  movieContainerDiv.append(renderedMovies);
+}
+
 export function clearMoviesNode() {
   const movieWrap = getMovieWrap();
   movieWrap.remove();
 }
 
-export function clearMovieDetailsNode() {
-  const movieDetailsWrap = getMovieDetailsWrap();
-  movieDetailsWrap.remove();
-}
-
-export function renderMovieDetails(film) {
+function renderMovieDetails(film) {
   let div = document.createElement('div');
   div.setAttribute('class', 'movie-details__wrap');
   div.setAttribute('id', 'movie-details__wrap');
 
-  div.innerHTML = 
-        `<div class="movie-details__poster">
+  div.innerHTML =
+    `<div class="movie-details__poster">
             <img class="movie-details__img" src="${film.picture}" alt="">
         </div>
         <div class="movie-details__info">
@@ -88,3 +94,13 @@ export function renderMovieDetails(film) {
   return div;
 }
 
+export function clearMovieDetailsNode() {
+  const movieDetailsWrap = getMovieDetailsWrap();
+  movieDetailsWrap.remove();
+}
+
+export function addMovieDetailsToNode(data) {
+  const renderedDetails = renderMovieDetails(data);
+  const movieDetailsContainer = getMovieDetailsContainerDiv();
+  movieDetailsContainer.append(renderedDetails);
+}
