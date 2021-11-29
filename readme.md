@@ -16,3 +16,6 @@ This service will show a big range of movies groped by different parameters like
 
 ## Also: 
 Implemented API interaction, working with environment key, used event observer pattern, BEM styling.
+
+## Example of successful work:
+![Screenshot](success_work.png)
