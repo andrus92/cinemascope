@@ -37,8 +37,16 @@ export function getMovieContainerDiv() {
   return document.getElementById('movie-container');
 }
 
+export function getMovieDetailsWrap() {
+  return document.getElementById('movie-details__wrap');
+}
+
 export function getMovieDetailsContainerDiv() {
   return document.getElementById('movie-details-container');
+}
+
+export function getBackButton() {
+  return document.getElementById('movie-details__btn');
 }
 
 export function getPopup(evt) {

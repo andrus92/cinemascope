@@ -1,13 +1,17 @@
 import './styles/normalize.css';
 import './styles/styles.scss';
 import { 
-  getMovieWrap,
   getMovieContainerDiv,
-  getMovieDetailsContainerDiv,
+  getBackButton,
   getPopup,
   handlePopupOver
 } from './accessors';
-import { renderMovies, renderMovieDetails, clearMovies } from './render';
+import { 
+  clearMoviesNode,
+  clearMovieDetailsNode,
+  addMoviesToNode,
+  addMovieDetailsToNode 
+} from './render';
 import { requestData } from './api';
 import EventObserver from './EventObserver';
 import mock from './mock';
@@ -18,15 +22,11 @@ function handleClickOnMovie(evt) {
   let className = evt.target.getAttribute('class');
   if (className === 'movie__card') {
     const movie_id = evt.target.getAttribute('id');
-    const renderedDetails = renderMovieDetails(moviesArr[movie_id]);
-    const movieDetailsContainer = getMovieDetailsContainerDiv();
-    const movieWrap = getMovieWrap();
-
-    movieDetailsContainer.append(renderedDetails);
-    clearMovies(movieWrap);
-
+    addMovieDetailsToNode(moviesArr[movie_id]);
+    clearMoviesNode();
     unregisterFromClickOn();
     unregisterFromMouseOver();
+    registerForBackButtonClickOn();
   }
 }
 
@@ -44,10 +44,18 @@ function handleMouseOver(evt) {
 
 function handleMouseOut(evt) {
   const popup = getPopup(evt);
-  if(popup) {
+  if (popup) {
     popup.classList.toggle('movie__moved');
     popup.setAttribute('popup', false);
   }
+}
+
+function handleBackButtonClick() {
+  addMoviesToNode(moviesArr);
+  unregisterFromBackButtonClickOn();
+  clearMovieDetailsNode();
+  registerForClickOn();
+  registerForMouseOver();
 }
 
 function registerForClickOn() {
@@ -72,6 +80,15 @@ function unregisterFromMouseOver() {
   movieContainerDiv.removeEventListener('mouseout', handleMouseOut);
 }
 
+function registerForBackButtonClickOn() {
+  const backButton = getBackButton();
+  backButton.addEventListener('click', handleBackButtonClick);
+}
+
+function unregisterFromBackButtonClickOn() {
+  const backButton = getBackButton();
+  backButton.removeEventListener('click', handleBackButtonClick);
+}
 
 // eslint-disable-next-line no-unused-vars
 function handleError(data, error) {
@@ -88,9 +105,7 @@ function handleData(data) {
     });
   });
 
-  const renderedMovies = renderMovies(moviesArr);
-  const movieContainerDiv = getMovieContainerDiv();
-  movieContainerDiv.append(renderedMovies);
+  addMoviesToNode(moviesArr);
 }
 
 function init() {
